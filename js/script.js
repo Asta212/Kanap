@@ -3,16 +3,20 @@ fetch("http://localhost:3000/api/products")
 .then((data) => addproducts(data))
 
 function addproducts(data) {
-    console.log(data)
     const imageUrl = data[0].imageUrl
-    console.log("url de l'image", imageUrl)
+    const anchor = makeAnchor(imageUrl)
+    appendChildren(anchor)  
+}
+
+function makeAnchor(url) {
     const anchor = document.createElement("a")
-    anchor.href = "http://localhost:3000/images/kanap01.jpeg"
-    anchor.text = "super canap"
-    
+    anchor.href = url
+    return anchor
+}
+
+function appendChildren(anchor) {
     const items = document.querySelector("#items")
     if (items != null) {
         items.appendChild(anchor)
-        console.log("nous avons bien ajouté le lien")
     }
 }
