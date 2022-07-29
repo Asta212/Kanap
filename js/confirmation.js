@@ -8,3 +8,12 @@ function getOrderId(){
     return urlParams.get("orderId")
 }
 
+function displayOrderId () {
+    const orderIdElement = document.getElementById("orderId")
+    orderIdElement.textContent = orderId
+}
+
+function removeAllCache() {
+    const cache = window.localStorage
+    cache.clear()
+}
